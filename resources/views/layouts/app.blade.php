@@ -20,18 +20,26 @@
       </ul>
 
       <ul class="flex items-center">
+        @auth
         <li class="p-3">
           <a href="">Chance Croft</a>
         </li>
         <li class="p-3">
-          <a href="">Login</a>
+          <form action="{{route('logout')}}" method="POST" class="inline">
+            @csrf
+              <button type="submit">Logout</button>
+          </form>
+        </li>
+        @endauth
+
+        @guest
+        <li class="p-3">
+          <a href="{{route('login')}}">Login</a>
         </li>
         <li class="p-3">
           <a href="{{route('register')}}">Register</a>
         </li>
-        <li class="p-3">
-          <a href="">Logout</a>
-        </li>
+        @endguest
       </ul>
 
     </nav>
