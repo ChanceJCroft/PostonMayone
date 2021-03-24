@@ -9,7 +9,7 @@
     <nav class="p-6 bg-white flex justify-between">
       <ul class="flex items-center">
         <li class="p-3">
-          <a href="">Home</a>
+          <a href="{{route('home')}}">Home</a>
         </li>
         <li class="p-3">
           <a href="{{route('dashboard')}}">Dashboard</a>
@@ -22,10 +22,10 @@
       <ul class="flex items-center">
         @auth
         <li class="p-3">
-          <a href="">Chance Croft</a>
+          <a href="">{{auth()->user()->name}}</a>
         </li>
         <li class="p-3">
-          <form action="{{route('logout')}}" method="POST" class="inline">
+          <form action="{{route('logout')}}" method="GET" class="inline">
             @csrf
               <button type="submit">Logout</button>
           </form>
